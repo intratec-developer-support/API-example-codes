@@ -3,7 +3,7 @@ Public Function CP_series_values(accessToken As String) As String
     Dim url As String
     Dim codes As String
 
-    'Up to 40 codes can be requested at once by dividing them with commas
+    'Up to 40 codes can be requested at once by separating them with commas
 
     'Available codes are obtained via **Intratec Primary Commodity Prices - Series Info operation**.
 
@@ -23,7 +23,7 @@ Public Function CP_series_values(accessToken As String) As String
     'Find IDs for currency and unit of measurement in the API User Guide
     codes = "91201-1-5"
     
-    'This is the URL to the Primary Commodity Prices - Sandbox - Get Series Values operation:
+    'This is the URL to the Primary Commodity Prices - Sandbox - Series Values operation:
     'To query actual values, simply remove sandbox/ from the URL
     url = "https://intratec.azure-api.net/commodity_price/v1/sandbox/export/series/" & codes
 
@@ -31,7 +31,7 @@ Public Function CP_series_values(accessToken As String) As String
     Dim request As Object
     Set request = CreateObject("MSXML2.ServerXMLHTTP")
     
-    'Make a GET request to the Primary Commodity Prices - Sandbox - Get Series Values operation
+    'Make a GET request to the Primary Commodity Prices - Sandbox - Series Values operation
     request.Open "GET", url, False
     request.setTimeouts 15000, 130000, 130000, 130000
     request.setRequestHeader "Authorization", "Bearer " & accessToken
