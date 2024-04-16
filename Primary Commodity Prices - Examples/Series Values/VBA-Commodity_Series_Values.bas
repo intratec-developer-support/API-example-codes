@@ -3,22 +3,27 @@ Public Function CP_series_values(accessToken As String) As String
     Dim url As String
     Dim codes As String
 
-    'Up to 40 codes can be requested at once by dividing the codes with commas
-    '**Example:** '91201-1-5', '91201-1-5'
+    'Up to 40 codes can be requested at once by dividing them with commas
 
-    'You can also add &c={Currency_ID} and/or &u={Unit_ID} after the code to specify the currency and unit to display the values in
-    '**Example:** '91201-1-5&u=6' (Unit in Kilograms - kg),'91201-1-5&c=9' (Currency in British Pounds - GBP)
+    'Available codes are obtained via **Intratec Primary Commodity Prices - Series Info operation**.
+
+    '>**E.g.:** '91201-1-5', '91201-1-5'
+
+    'You can also add &c={Currency_ID} and/or &u={Unit_ID} after the code to select a different output currency and unit   
+
+    '>**E.g.:** '91201-1-5&u=6' (Unit in Kilograms - kg) **||** '91201-1-5&c=9' (Currency in British Pounds - GBP)
 
     'You can specify both unit and currency for the same code, no matter the order of the parameters
 
-    '91201-1-5&u=6&c=9' **is equivalent to** '91201-1-5&c=9&u=6'
+    '>'91201-1-5&u=6&c=9' **is equivalent to** '91201-1-5&c=9&u=6'   
+
 
     '**{Currency_ID}** and **{Unit_ID}** can be found at Appendix of the PDF documentation
 
-    'Available units and currencies are found in the response of **Intratec Primary Commodity Prices - Series Info API**
+    'Find IDs for currency and unit of measurement in the API User Guide
     codes = "91201-1-5"
     
-    'This is the URL to the Sandbox - Series Values - Primary Commodity Prices API:
+    'This is the URL to the Primary Commodity Prices - Sandbox - Get Series Values operation:
     'To query actual values, simply remove sandbox/ from the URL
     url = "https://intratec.azure-api.net/commodity_price/v1/sandbox/export/series/" & codes
 
@@ -26,7 +31,7 @@ Public Function CP_series_values(accessToken As String) As String
     Dim request As Object
     Set request = CreateObject("MSXML2.ServerXMLHTTP")
     
-    'Make a GET request to the Primary Commodity Prices - Series Values API
+    'Make a GET request to the Primary Commodity Prices - Sandbox - Get Series Values operation
     request.Open "GET", url, False
     request.setTimeouts 15000, 130000, 130000, 130000
     request.setRequestHeader "Authorization", "Bearer " & accessToken
