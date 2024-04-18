@@ -7,15 +7,15 @@ Public Function CP_sb_series_values_hist(accessToken As String) As String
 
     'Available codes are obtained via **Intratec Primary Commodity Prices - Series Info operation**.
 
-    '>**E.g.:** '91201-1-5', '91201-1-5'
+    '>**E.g.:** 91201-1-5,69138-1-13
 
     'You can also add &c={Currency_ID} and/or &u={Unit_ID} after the code to select a different output currency and unit   
 
-    '>**E.g.:** '91201-1-5&u=6' (Unit in Kilograms - kg) **||** '91201-1-5&c=9' (Currency in British Pounds - GBP)
+    '>**E.g.:** 91201-1-5&u=6 (Unit in Kilograms - kg) **||** 91201-1-5&c=9 (Currency in British Pounds - GBP)
 
     'You can specify both unit and currency for the same code, no matter the order of the parameters
 
-    '>'91201-1-5&u=6&c=9' **is equivalent to** '91201-1-5&c=9&u=6'   
+    '>91201-1-5&u=6&c=9 **is equivalent to** 91201-1-5&c=9&u=6  
 
 
     '**{Currency_ID}** and **{Unit_ID}** can be found at Appendix of the PDF documentation
