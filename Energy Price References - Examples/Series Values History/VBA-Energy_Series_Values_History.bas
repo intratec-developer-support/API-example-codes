@@ -1,11 +1,11 @@
-Public Function CP_sb_series_values_hist(accessToken As String) As String
+Public Function EP_sb_series_values_hist(accessToken As String) As String
 
     Dim url As String
     Dim codes As String
 
     'Up to 40 codes can be requested at once by separating them with commas
 
-    'Available codes are obtained via **Intratec Primary Commodity Prices - Series Info operation**.
+    'Available codes are obtained via **Intratec Energy Price References - Series Info operation**.
 
     '>**E.g.:** 68520-8-1,43125-8-1
 
@@ -23,21 +23,21 @@ Public Function CP_sb_series_values_hist(accessToken As String) As String
     'Find IDs for currency and unit of measurement in the API User Guide
     codes = "68520-8-1"
     
-    'This is the URL to the Primary Commodity Prices - Sandbox - Series Values History operation:
+    'This is the URL to the Energy Price References - Sandbox - Series Values History operation:
     'To query actual values, simply remove sandbox/ from the URL
-    url = "https://intratec.azure-api.net/commodity_price/v1/sandbox/export/series_hist/" & codes
+    url = "https://intratec.azure-api.net/energy_price/v1/sandbox/export/series_hist/" & codes
 
     'Set up the request
     Dim request As Object
     Set request = CreateObject("MSXML2.ServerXMLHTTP")
     
-    'Make a GET request to the Primary Commodity Prices - Sandbox - Series Values History operation
+    'Make a GET request to the Energy Price References - Sandbox - Series Values History operation
     request.Open "GET", url, False
     request.setTimeouts 15000, 130000, 130000, 130000
     request.setRequestHeader "Authorization", "Bearer " & accessToken
     request.send
     
     'Get the response
-    CP_sb_series_values_hist = request.responseText
+    EP_sb_series_values_hist = request.responseText
     
 End Function
