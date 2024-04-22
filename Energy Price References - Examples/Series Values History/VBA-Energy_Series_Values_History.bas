@@ -1,4 +1,4 @@
-Public Function EP_sb_series_values_hist(accessToken As String) As String
+Public Function EP_series_values_hist(accessToken As String) As String
 
     Dim url As String
     Dim codes As String
@@ -38,6 +38,6 @@ Public Function EP_sb_series_values_hist(accessToken As String) As String
     request.send
     
     'Get the response
-    EP_sb_series_values_hist = request.responseText
+    EP_series_values_hist = request.responseText
     
 End Function
