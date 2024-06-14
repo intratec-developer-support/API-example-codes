@@ -4,7 +4,6 @@ Public Function CI_data_limits(accessToken As String) As String
     Dim codes As String
     
     'This is the URL to the Plant Construction Indexes - Data Limits operation:
-    'If you want to check the limits for the Series Values History operation, replace "data_limits" with "data_limits_hist"
     url = "https://intratec.azure-api.net/cost_index/v1/data_limits"
 
     'Set up the request
