@@ -3,14 +3,14 @@ Public Function IE_data_limits(accessToken As String) As String
     Dim url As String
     Dim codes As String
     
-    'This is the URL to the Industry Economics - Plant Location Factors - Data Limits operation:
+    'This is the URL to the Industry Economics Worldwide - Data Limits operation:
     url = "https://intratec.azure-api.net/location_factor/v1/data_limits"
 
     'Set up the request
     Dim request As Object
     Set request = CreateObject("MSXML2.ServerXMLHTTP")
 
-    'Make a GET request to the Industry Economics - Plant Location Factors - Data Limits operation
+    'Make a GET request to the Industry Economics Worldwide - Data Limits operation
     request.Open "GET", url, False
     request.setTimeouts 15000, 130000, 130000, 130000
     request.setRequestHeader "Authorization", "Bearer " & accessToken
